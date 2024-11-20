@@ -1,30 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from "react";
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Register from './src/screens/Register';
-import Login from './src/screens/Login';  
-import Home from './src/screens/Home';  
+import app from 'firebase/app';
+import firebase from "firebase";
 
-const Stack = createStackNavigator();
+const firebaseConfig = {
+    apiKey: "AIzaSyATooqB9UoMXNEwEh4z4nbWlarhV061Qgw",
+    authDomain: "proyecto2-2a6ef.firebaseapp.com",
+    projectId: "proyecto2-2a6ef",
+    storageBucket: "proyecto2-2a6ef.firebasestorage.app",
+    messagingSenderId: "442049976903",
+    appId: "1:442049976903:web:d4f802b2c8429e354e2f62",
+    measurementId: "G-4SRX90LCNS"
+  };
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Register">
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+  app.initializeApp(firebaseConfig)
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  export const auth = firebase.auth();
+  export const storage = app.storage();
+  export const db = app.firestore();
