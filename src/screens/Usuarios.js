@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import {View, Text} from "react-native"
 
-class Profile extends Component{
+class Usuarios extends Component{
     render(){
         
         return(
         <View>
-        <Text>Hola, esto es PROFILE</Text>
+        <Text>Hola, esto es Usuarios</Text>
         </View>
         )
 }
 }
 
-export default Profile
+export default Usuarios

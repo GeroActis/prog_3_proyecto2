@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { auth } from '../firebase/config';
 
 class Login extends Component {
@@ -25,7 +25,7 @@ class Login extends Component {
       auth.signInWithEmailAndPassword(email, password)
           .then(response => {
               this.setState({ errorMessage: '', registered: true });
-              this.props.navigation.navigate('Home'); 
+              this.props.navigation.navigate('HomeMenu'); 
           })
           .catch(error => {
               this.setState({ errorMessage: 'Datos incorrectos, intente nuevamente.' });
