@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 function HomeMenu() {
     return(
         <>
-            <Tab.Navigator>
+            <Tab.Navigator screenOptions={ { tabBarShowLabel: false } }>
                 <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: () => <AntDesign name="home" size={24} color="black" />}} />
                 <Tab.Screen name="Profile" component={Profile} options={{ tabBarIcon: () => <AntDesign name="user" size={24} color="black" />}}/>
                 <Tab.Screen name="Usuarios" component={Usuarios} options={{ tabBarIcon: () => <AntDesign name="meho" size={24} color="black" />}}/>

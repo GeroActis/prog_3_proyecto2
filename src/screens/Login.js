@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { auth } from '../firebase/config';
 
 class Login extends Component {
@@ -35,6 +35,8 @@ class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Image source={require('../../assets/logo.png')} resizeMode="contain" style={styles.logo}/>
+                 
                 {this.state.errorMessage ? <Text style={styles.errorText}>{this.state.errorMessage}</Text> : null}
 
                 <TextInput
@@ -80,6 +82,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 25,
         backgroundColor: '#cfe2f3',
+    },
+    logo: {
+        width: 300, 
+        height: 300, 
+        marginBottom: 20, 
     },
     input: {
         width: '100%',

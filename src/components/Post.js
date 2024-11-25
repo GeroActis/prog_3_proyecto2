@@ -76,7 +76,7 @@ class Post extends Component {
         }
         <Text>Cantidad de likes: {this.state.cantLikes}</Text>
         <TouchableOpacity style={styles.likeBoton} onPress={()=> this.deletePost(this.state.postInfo.id)}>
-                    <Text> delete </Text>
+                    <Text style={styles.eliminar}> Delete </Text>
                 </TouchableOpacity>
         </View>
     )
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
     },
     items: {
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: "600",
         color: "#333",
         marginBottom: 8,
@@ -105,6 +105,13 @@ const styles = StyleSheet.create({
     likeIcono: {
         marginRight: 8,
     },
+    eliminar: {
+        marginTop: 5,
+        marginBottom: 5,
+        color: "#e74c3c",
+        fontSize: 15,
+        fontWeight: "500", 
+      },
 })
 
 export default Post

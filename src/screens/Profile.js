@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from "react-native";
 import { auth, db } from "../firebase/config";
 import Post from "../components/Post";
 
@@ -35,11 +35,11 @@ class Profile extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.principal}>
         {this.state.posteos.length > 0 ? (
           <>
-            <Text>Mi usuario: {this.state.posteos[0].data.email}</Text>
-            <Text>Cantidad de Posteos: {this.state.posteos.length}</Text>
+            <Text style={styles.titulo}>Mi usuario: {this.state.posteos[0].data.email}</Text>
+            <Text style={styles.titulo}>Cantidad de Posteos: {this.state.posteos.length}</Text>
             <FlatList
               data={this.state.posteos}
               keyExtractor={(item) => item.id.toString()}
@@ -52,11 +52,33 @@ class Profile extends Component {
         <TouchableOpacity
           onPress={() => (auth.signOut(),this.props.navigation.navigate("Login"))}
         >
-          <Text>Desloguearse</Text>
+          <Text style={styles.deslogearse}>Desloguearse</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
-
+const styles = StyleSheet.create({
+  principal: {
+      flex: 1,
+      backgroundColor: "#0b5394",
+      paddingHorizontal: 15,
+      paddingTop: 10,
+  },
+  titulo:{
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#ffffff", 
+    marginVertical: 5,
+  },
+  deslogearse: {
+    marginTop: 10,
+    marginBottom: 15,
+    color: "#e74c3c",
+    fontSize: 20,
+    fontWeight: "500", 
+    textDecorationLine: "underline",
+    textAlign: "center", 
+  },
+})
 export default Profile;

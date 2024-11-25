@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
   FlatList,
 } from "react-native";
-import { db, auth } from "../firebase/config";
+import { db } from "../firebase/config";
 
 class Usuarios extends Component {
   constructor() {
@@ -54,13 +54,21 @@ class Usuarios extends Component {
             />
           </View>
         ) : (
-          <FlatList
-            data={this.state.usuarios}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <Text> {item.data.username}</Text>}
-          />
+          <>
+            <Text style={styles.titulo}>Nombres:</Text>
+            <FlatList
+              data={this.state.usuarios}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({ item }) => 
+                <View style={styles.lista}>
+                  <Text style={styles.items}>{item.data.username}</Text>
+                </View>
+              }
+            />
+          </>
         )}
         <TextInput
+          style={styles.input}
           placeholder="Buscar username"
           value={this.state.userField}
           onChangeText={(text) => {
@@ -93,6 +101,34 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     borderColor: "#ffffff",
     padding: 15,
+  },
+  titulo:{
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#ffffff", 
+    marginVertical: 5,
+  },
+  lista: {
+    backgroundColor: "#cfe2f3",
+    borderRadius: 8,
+    padding: 15,
+    marginVertical: 10,
+  },
+  items: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
+    marginBottom: 8,
+  },
+  input: {
+    backgroundColor: "#ffffff",
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    marginTop: 5,
+    marginBottom: 10,
+    fontSize: 16,
+    color: "#333",
   },
 });
 
