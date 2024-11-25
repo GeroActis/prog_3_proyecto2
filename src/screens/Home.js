@@ -11,6 +11,8 @@ class Home extends Component{
             isLoading: true
         }
     }
+    
+
 
     componentDidMount(){
         db.collection("posts").orderBy("createdAt", "desc").onSnapshot(

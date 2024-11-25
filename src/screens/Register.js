@@ -13,6 +13,13 @@ class Register extends Component {
             errorMessage: ''
         };
     }
+    componentDidMount(){
+        auth.onAuthStateChanged(user => {
+            if(user){
+                this.props.navigation.navigate("HomeMenu")
+            }
+        })
+    }
 
     validarForm = () => {
         const { email, username, password } = this.state;

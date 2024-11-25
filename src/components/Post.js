@@ -21,6 +21,17 @@ class Post extends Component {
             });
         }
     }
+    deletePost(id){
+        db.collection("posts")
+          .doc(id)
+          .delete()
+          .then(() => {
+            console.log("Post eliminado");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
 
     like(){
         db.collection("posts").doc(this.props.postInfo.id).update({
@@ -64,6 +75,9 @@ class Post extends Component {
             )
         }
         <Text>Cantidad de likes: {this.state.cantLikes}</Text>
+        <TouchableOpacity style={styles.likeBoton} onPress={()=> this.deletePost(this.state.postInfo.id)}>
+                    <Text> delete </Text>
+                </TouchableOpacity>
         </View>
     )
 }

@@ -9,6 +9,8 @@ class NewPost extends Component{
             post: "",
         }
     }
+ 
+
     postear(email, post){
             db.collection("posts").add({
                 email: email,
