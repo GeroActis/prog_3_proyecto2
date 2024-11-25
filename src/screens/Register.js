@@ -106,18 +106,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 25,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#cfe2f3', 
     },
     input: {
         width: '100%',
         height: 50,
-        borderColor: '#ddd',
+        borderColor: '#6fa8dc',
         borderWidth: 1,
         marginBottom: 20,
         paddingLeft: 15,
         borderRadius: 8,
         fontSize: 16,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
+        color: '#0b5394',
     },
     button: {
         width: '100%',
@@ -126,23 +127,26 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 8,
         marginTop: 10,
+        backgroundColor: '#3d85c6',
     },
     buttonText: {
-        color: '#fff',
+        color: '#ffffff',
         fontSize: 18,
         fontWeight: '600',
     },
     link: {
         marginTop: 20,
-        color: '#007bff',
+        color: '#0b5394',
         fontSize: 16,
         fontWeight: '500',
+        textDecorationLine: 'underline',
     },
     errorText: {
         color: '#e74c3c',
         marginBottom: 15,
         fontSize: 14,
-    }
+    },
 });
+
 
 export default Register;
